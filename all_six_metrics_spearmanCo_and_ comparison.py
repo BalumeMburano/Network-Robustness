@@ -141,13 +141,13 @@ def main():
         corr_coef_gap, p = spearmanr(r_value,spec_gap)
         
 
-        '''
+        
         print('Coefficient for algebraic Is:', corr_coef_alg)
         print('Coefficient for natural connectivity Is:', corr_coef_nat_con)
         print('Coefficient for number of spanning Tree Is:', corr_coef_spt)
         print('Coefficient for effective resistance Is:', corr_coef_ef_res)
         print('Coefficient for spectral radius Is:', corr_coef_spec_rad)
-        print('Coefficient for spectral gap Is:', corr_coef_gap)'''
+        print('Coefficient for spectral gap Is:', corr_coef_gap)
         
         
         #Show the relationship between R-metric and the five metrics connected with line to emphasize continuity
