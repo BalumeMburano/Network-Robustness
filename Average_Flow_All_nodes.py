@@ -68,14 +68,12 @@ for i in range (i,l-1):
     for j in range (j,l):
         
         v=j
-        path = nx.shortest_path(GHT, u, v, weight='weight')
         cut_value, edge = minimum_edge_weight_in_shortest_path1(GHT, u, v)
         degrees.append(cut_value)
         print(i,j)
         print('Path',i,' is :',path)
         print('For Path',i,' : the cut value is:',cut_value,'and the min cut value',nx.minimum_cut_value(G1, u, v))
-#            j+=1
-#    i+=1
+
     
 tot=sum(degrees)
 print(path)
