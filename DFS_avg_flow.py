@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 26 15:16:21 2019
+Created on Tue Dec  3 09:41:57 2019
 
 @author: 90937669
 """
-
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -41,24 +40,19 @@ plt.show()
 
 
 GHT = nx.gomory_hu_tree(G1)
-mins=[]
 n=len(GHT .nodes)
 edges=GHT.edges
 
 
-edges=[]
-w_values=[]
+all_weights=[]
 
 def dfs_rec(graph, root, visited=None):
-   
     if  visited is None:
         visited=[]
     if root in visited:
         return 
     visited.append(root)
-
     weights1=[]
-    n_values=[]
 
     for each in [x for x in graph[root] if x not in visited]:
         b=each
@@ -67,16 +61,33 @@ def dfs_rec(graph, root, visited=None):
         weights1.append(w)
       
         for values in weights1:
-            
             for keys,val in values.items():
-                n_values.append(int(val))
-        #print(a,b,'The weight is', val)
-        edges.append(a)
-        edges.append(b)
-        w_values.append(min(n_values))
-       
-
+                w_value=int(val)     
+        print(a,b,' Weight is:',val)
+        all_weights.append(w_value)   
         dfs_rec(graph,each,visited)
+    
+    return all_weights
 
-    return sum(w_values)/len(w_values)
-print('Average Flow Using_DFS: ',dfs_rec(Graph,1))
+
+i=0
+n=len(Graph)
+weights=[]
+min_weights=[]
+
+for i in range (i,n):
+    dd=dfs_rec(Graph,i)
+    print('Iteration Number :', i)
+    
+weights.append(dd)
+weights_1=weights[0]
+min_weights.append(weights_1[0])
+
+for first,second in zip(weights_1,weights_1[1:]):
+    if first > second:
+        min_weights.append(second)
+    else:
+        min_weights.append(first)
+
+print(min_weights,sum(min_weights),len(min_weights),(sum(min_weights)/len(min_weights)))
+          
